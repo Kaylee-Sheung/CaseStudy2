@@ -1,0 +1,147 @@
+
+/* reset style */
+
+body, ul {
+  margin: 0;
+  font-family: Georgia, Times New Roman, serif;
+}
+
+h1 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+main {
+  padding-top: 2em;
+}
+
+/* box model */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* background image */
+
+body {
+  background-color: rgb(148, 148, 148);
+  transition: all 0.8s ease;
+}
+
+.wrapper {
+  max-width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+/* content */
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item-cell {
+  display: flex;
+  /* flex-direction: column; */
+  flex-shrink: 1;
+  width: calc(100% - 2em); 
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease;
+}
+
+.item-cell > h2 {
+  font-family: Franklin Gothic, sans-serif;
+  font-size: 1.25em;
+  margin: 0 0 .5em 0;
+}
+
+.item-cell-text {
+  margin: .5em 0;
+}
+
+.item-cell-text > p {
+  text-align: left;
+  margin: 0 0 .5em;
+  text-indent: 2em;
+}
+
+.item-cell > img {
+  max-height: 300px;
+  min-height: 0; 
+  order: -1;
+  margin: 0 0 .5em 0;
+}
+
+.item-cell-main {
+  margin-left: 1em;
+}
+
+.item-cell:hover {
+  background-color: rgba(255, 255, 255, 1);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 0.5em 0 rgb(255, 155, 155)
+}
+
+/* detail view */
+
+.detail-view {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+
+.detail-view::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+  opacity: 0.65;
+}
+
+.detail-content {
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.detail-content::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.detail-content > img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body.iscovered main {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
